@@ -34,4 +34,8 @@ public class ClienteService {
 	public List<Cliente> listar() {
 		return clienteDao.listar();
 	}
+	
+	public void excluir(Cliente cliente) {
+		clienteDao.excluir(cliente);
+	}
 }

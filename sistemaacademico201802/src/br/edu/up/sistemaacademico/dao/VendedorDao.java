@@ -5,41 +5,40 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.edu.up.sistemaacademico.entity.Aluno;
+import br.edu.up.sistemaacademico.entity.Vendedor;
 
-public class AlunoDao implements Dao<Aluno> {
+public class VendedorDao implements Dao<Vendedor> {
 	
-	
-	public void salvar(Aluno a) {
+	public void salvar(Vendedor v) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		em.getTransaction().begin();
-		em.persist(a);		
+		em.persist(v);		
 		em.getTransaction().commit();
 	}
 	
-	public void editar(Aluno a) {
+	public void editar(Vendedor v) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		em.getTransaction().begin();
-		em.merge(a);		
+		em.merge(v);		
 		em.getTransaction().commit();
 	}
 	
-	public void excluir(Aluno a) {
-		
+	public void excluir(Vendedor v) {
+		EntityManager em = Conexao.getInstance().createEntityManager();
+		em.getTransaction().begin();
+		em.remove(v);		
+		em.getTransaction().commit();
 	}
 	
-	public List<Aluno> listar() {
+	public List<Vendedor> listar() {
 		EntityManager em = Conexao.getInstance().createEntityManager();
-		Query q = em.createQuery("select a from Aluno a");
+		Query q = em.createQuery("select v from Vendedor v");
 		return q.getResultList();		
 	}
 
 	@Override
-	public Aluno buscar(Long id) {
+	public Vendedor buscar(Long id) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
-		return em.find(Aluno.class, id);
+		return em.find(Vendedor.class, id);
 	}
-	
-	
-
 }

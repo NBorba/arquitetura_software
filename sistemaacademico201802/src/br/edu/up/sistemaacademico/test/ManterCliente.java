@@ -8,9 +8,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.edu.up.sistemaacademico.entity.Aluno;
 import br.edu.up.sistemaacademico.entity.Cliente;
-import br.edu.up.sistemaacademico.service.AlunoService;
 import br.edu.up.sistemaacademico.service.ClienteService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 
@@ -37,7 +35,7 @@ public class ManterCliente {
 	}
 	
 	@Test
-	public void deveriaAlterarUmAluno() {
+	public void deveriaAlterarUmCliente() {
 		Cliente c = new ClienteService().buscar(id);
 		c.setNome("ABC");
 		
@@ -52,7 +50,7 @@ public class ManterCliente {
 	}
 	
 	@Test
-	public void deveriaListarOsAlunos() {
+	public void deveriaListarOsClientes() {
 		List<Cliente> clientes = new ClienteService().listar();
 		assertEquals(true, clientes != null && clientes.size() > 0);
 	}

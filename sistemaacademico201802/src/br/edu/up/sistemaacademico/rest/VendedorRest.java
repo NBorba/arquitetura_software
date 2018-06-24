@@ -11,27 +11,27 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.edu.up.sistemaacademico.entity.Cliente;
-import br.edu.up.sistemaacademico.service.ClienteService;
+import br.edu.up.sistemaacademico.entity.Vendedor;
+import br.edu.up.sistemaacademico.service.VendedorService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 import io.swagger.annotations.Api;
 
-@Path("/cliente")
-@Api(value = "/cliente", description = "Clientes")
-public class ClienteRest {
+@Path("/vendedor")
+@Api(value = "/vendedor", description = "Vendedores")
+public class VendedorRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Cliente> listar() {
-		List<Cliente> clientes = new ClienteService().listar();
-		return clientes;
+	public List<Vendedor> listar() {
+		List<Vendedor> vendedor = new VendedorService().listar();
+		return vendedor;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void salvar(Cliente cliente) {
+	public void salvar(Vendedor Vendedor) {
 		try {
-			new ClienteService().salvar(cliente);
+			new VendedorService().salvar(Vendedor);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -39,9 +39,9 @@ public class ClienteRest {
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void editar(Cliente cliente) {
+	public void editar(Vendedor Vendedor) {
 		try {
-			new ClienteService().salvar(cliente);
+			new VendedorService().salvar(Vendedor);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -49,7 +49,7 @@ public class ClienteRest {
 	
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void excluir(Cliente cliente) {
-		new ClienteService().excluir(cliente);
+	public void excluir(Vendedor Vendedor) {
+		new VendedorService().excluir(Vendedor);
 	}
 }
