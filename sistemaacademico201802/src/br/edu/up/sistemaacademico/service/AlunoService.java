@@ -34,7 +34,4 @@ public class AlunoService {
 	public List<Aluno> listar() {
 		return alunoDao.listar();
 	}
-
-	
-
 }
