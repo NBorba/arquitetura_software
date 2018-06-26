@@ -37,4 +37,13 @@ export class HttpClienteService {
 	      post('http://localhost:8080/dogaoondemand/rest/cliente',
 	      json, options).map(res => res.json());
 	  }
+    
+    removeCliente(cliente: Cliente): Observable<string> {
+      const json = JSON.stringify(cliente);
+      const headers = new Headers({ 'Content-Type': 'application/json' });
+      const options = new RequestOptions({ headers: headers });
+      return this._http.
+        post('http://localhost:8080/dogaoondemand/rest/cliente/excluir',
+        json, options).map(res => res.json());
+    }
 }

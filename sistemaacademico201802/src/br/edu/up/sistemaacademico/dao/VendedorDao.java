@@ -26,7 +26,7 @@ public class VendedorDao implements Dao<Vendedor> {
 	public void excluir(Vendedor v) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		em.getTransaction().begin();
-		em.remove(v);		
+		em.remove(em.merge(v));		
 		em.getTransaction().commit();
 	}
 	

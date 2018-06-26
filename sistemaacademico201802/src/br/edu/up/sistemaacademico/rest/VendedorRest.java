@@ -23,9 +23,9 @@ public class VendedorRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listar() {
+	public List<Vendedor> listar() {
 		List<Vendedor> vendedor = new VendedorService().listar();
-		return Response.ok(vendedor).header("Access-Control-Allow-Origin", "*").build();
+		return vendedor;
 	}
 	
 	@POST

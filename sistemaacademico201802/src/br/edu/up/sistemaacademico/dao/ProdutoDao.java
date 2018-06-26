@@ -26,7 +26,7 @@ public class ProdutoDao implements Dao<Produto> {
 	public void excluir(Produto p) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		em.getTransaction().begin();
-		em.remove(p);		
+		em.remove(em.merge(p));		
 		em.getTransaction().commit();
 	}
 	

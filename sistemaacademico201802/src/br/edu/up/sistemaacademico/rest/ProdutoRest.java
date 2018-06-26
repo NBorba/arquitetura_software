@@ -23,9 +23,9 @@ public class ProdutoRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listar() {
+	public List<Produto> listar() {
 		List<Produto> produtos = new ProdutoService().listar();
-		return Response.ok(produtos).header("Access-Control-Allow-Origin", "*").build();
+		return produtos;
 	}
 	
 	@POST

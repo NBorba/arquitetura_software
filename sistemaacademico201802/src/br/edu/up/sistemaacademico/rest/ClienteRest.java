@@ -23,9 +23,9 @@ public class ClienteRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listar() {
+	public List<Cliente> listar() {
 		List<Cliente> clientes = new ClienteService().listar();
-		return Response.ok(clientes).header("Access-Control-Allow-Origin", "*").build();
+		return clientes;
 	}
 	
 	@POST
@@ -48,7 +48,8 @@ public class ClienteRest {
 		}
 	}
 	
-	@DELETE
+	@POST
+	@Path("/excluir")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void excluir(Cliente cliente) {
 		new ClienteService().excluir(cliente);

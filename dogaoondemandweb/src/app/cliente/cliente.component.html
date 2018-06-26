@@ -27,7 +27,7 @@
 			<td>{{cliente.nome}} </td>
 			<td>{{cliente.cpf}}</td>
 			<td><button (click)="loadCliente(cliente)">Editar</button></td>
-			<td><button>Excluir</button></td>
+			<td><button (click)="removeCliente(cliente)">Excluir</button></td>
 		</tr>
 	</table>
 	

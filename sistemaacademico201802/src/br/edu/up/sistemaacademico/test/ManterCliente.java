@@ -9,7 +9,9 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.edu.up.sistemaacademico.entity.Cliente;
+import br.edu.up.sistemaacademico.entity.Produto;
 import br.edu.up.sistemaacademico.service.ClienteService;
+import br.edu.up.sistemaacademico.service.ProdutoService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 
 @FixMethodOrder(MethodSorters.JVM)
@@ -57,4 +59,12 @@ public class ManterCliente {
 		assertEquals(true, clientes != null && clientes.size() > 0);
 	}
 	
+	@Test
+	public void deveriaExcluirOCliente() {
+		Cliente c = new ClienteService().buscar(id);
+		new ClienteService().excluir(c);
+		
+		Cliente cExcluido = new ClienteService().buscar(id);
+		assertEquals(true, cExcluido == null);
+	}
 }

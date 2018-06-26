@@ -26,7 +26,7 @@ public class ClienteDao implements Dao<Cliente> {
 	public void excluir(Cliente c) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		em.getTransaction().begin();
-		em.remove(c);		
+		em.remove(em.merge(c));		
 		em.getTransaction().commit();
 	}
 	
