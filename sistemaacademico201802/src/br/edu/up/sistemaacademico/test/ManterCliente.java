@@ -23,6 +23,8 @@ public class ManterCliente {
 		c.setId(null);
 		c.setNome("Cleverson");
 		c.setCpf("12345");
+		c.setEndereco("sadasd");
+		c.setTelefone("Telefone");
 		
 		try {
 			new ClienteService().salvar(c);

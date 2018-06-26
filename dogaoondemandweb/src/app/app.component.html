@@ -1,0 +1,18 @@
+<table id="clientes" class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nome</th>
+		      <th scope="col">CPF</th>
+		      <th scope="col">Telefone</th>
+		      <th scope="col">Endereco</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let cliente of clientes">
+		      <td>{{ cliente.nome }}</td>
+		      <td>{{ cliente.cpf }}</td>
+		      <td>{{ cliente.telefone }}</td>
+		      <td>{{ cliente.endereco }}</td>
+		    </tr>
+		  </tbody>
+		</table>

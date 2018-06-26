@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import br.edu.up.sistemaacademico.entity.Cliente;
 import br.edu.up.sistemaacademico.service.ClienteService;
@@ -22,9 +23,9 @@ public class ClienteRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Cliente> listar() {
+	public Response listar() {
 		List<Cliente> clientes = new ClienteService().listar();
-		return clientes;
+		return Response.ok(clientes).header("Access-Control-Allow-Origin", "*").build();
 	}
 	
 	@POST
