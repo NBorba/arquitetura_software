@@ -1,18 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ClienteService } from './cliente.service';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
+import { HttpAlunoComponent } from './aluno/httpaluno.component';
+import { HttpClienteComponent } from './cliente/httpcliente.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HttpAlunoComponent,
+    HttpClienteComponent
   ],
   imports: [
-     BrowserModule,
-     HttpClientModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot([
+  {
+    path: 'aluno',
+    component: HttpAlunoComponent
+  },
+  {
+    path: 'cliente',
+    component: HttpClienteComponent
+  }
+])
   ],
-  providers: [ClienteService],
+  providers: [HttpAlunoComponent, 
+    HttpClienteComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

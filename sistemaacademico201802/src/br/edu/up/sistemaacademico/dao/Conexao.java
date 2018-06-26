@@ -11,6 +11,4 @@ public class Conexao {
 	public static EntityManagerFactory getInstance() {
 		return emf;
 	}
-
-
 }
