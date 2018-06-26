@@ -21,7 +21,7 @@ public class ManterProduto {
 	public void deveriaCadastrarUmProduto() {
 		Produto p = new Produto();
 		p.setId(null);
-		p.setNome("Cleverson");
+		p.setNome("Pendrive");
 		
 		try {
 			new ProdutoService().salvar(p);
@@ -36,7 +36,7 @@ public class ManterProduto {
 	@Test
 	public void deveriaAlterarUmProduto() {
 		Produto p = new ProdutoService().buscar(id);
-		p.setNome("ABC");
+		p.setNome("SSD");
 		
 		try {
 			new ProdutoService().salvar(p);
@@ -45,7 +45,7 @@ public class ManterProduto {
 		}
 		
 		p = new ProdutoService().buscar(id);
-		assertEquals(true, p.getNome().equals("ABC"));		
+		assertEquals(true, p.getNome().equals("SSD"));		
 	}
 	
 	@Test

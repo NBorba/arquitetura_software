@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import br.edu.up.sistemaacademico.entity.Vendedor;
 import br.edu.up.sistemaacademico.service.VendedorService;
@@ -22,9 +23,9 @@ public class VendedorRest {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Vendedor> listar() {
+	public Response listar() {
 		List<Vendedor> vendedor = new VendedorService().listar();
-		return vendedor;
+		return Response.ok(vendedor).header("Access-Control-Allow-Origin", "*").build();
 	}
 	
 	@POST

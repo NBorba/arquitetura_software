@@ -21,7 +21,7 @@ public class ManterVendedor {
 	public void deveriaCadastrarUmVendedor() {
 		Vendedor v = new Vendedor();
 		v.setId(null);
-		v.setNome("Cleverson");
+		v.setNome("Renan Vendedor");
 		
 		try {
 			new VendedorService().salvar(v);
@@ -36,7 +36,7 @@ public class ManterVendedor {
 	@Test
 	public void deveriaAlterarUmVendedor() {
 		Vendedor v = new VendedorService().buscar(id);
-		v.setNome("ABC");
+		v.setNome("Renan Vendedor Dois");
 		
 		try {
 			new VendedorService().salvar(v);
@@ -45,7 +45,7 @@ public class ManterVendedor {
 		}
 		
 		v = new VendedorService().buscar(id);
-		assertEquals(true, v.getNome().equals("ABC"));		
+		assertEquals(true, v.getNome().equals("Renan Vendedor Dois"));		
 	}
 	
 	@Test

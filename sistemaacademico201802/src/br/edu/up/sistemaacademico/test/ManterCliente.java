@@ -21,8 +21,8 @@ public class ManterCliente {
 	public void deveriaCadastrarUmCliente() {
 		Cliente c = new Cliente();
 		c.setId(null);
-		c.setNome("Cleverson");
-		c.setCpf("12345");
+		c.setNome("Renan");
+		c.setCpf("111111111111");
 		c.setEndereco("sadasd");
 		c.setTelefone("Telefone");
 		
@@ -39,7 +39,7 @@ public class ManterCliente {
 	@Test
 	public void deveriaAlterarUmCliente() {
 		Cliente c = new ClienteService().buscar(id);
-		c.setNome("ABC");
+		c.setNome("Renan dois");
 		
 		try {
 			new ClienteService().salvar(c);
@@ -48,7 +48,7 @@ public class ManterCliente {
 		}
 		
 		c = new ClienteService().buscar(id);
-		assertEquals(true, c.getNome().equals("ABC"));		
+		assertEquals(true, c.getNome().equals("Renan dois"));		
 	}
 	
 	@Test
