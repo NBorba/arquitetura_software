@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Eclipse/Downloads/h2-1.4.197.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Eclipse/Downloads/hibernate/hibernate-release-4.3.5.Final/lib/required/javassist-3.18.1-GA.jar"/>
 	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -22,7 +24,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Eclipse/Downloads/hibernate/hibernate-release-4.3.5.Final/lib/required/javassist-3.18.1-GA.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Eclipse/Downloads/h2-1.4.197.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
