@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.edu.up.sistemaacademico.entity.Cliente;
+import br.edu.up.sistemaacademico.facade.DogaoOnDemandFacade;
 import br.edu.up.sistemaacademico.service.ClienteService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 import io.swagger.annotations.Api;
@@ -24,7 +25,7 @@ public class ClienteRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Cliente> listar() {
-		List<Cliente> clientes = new ClienteService().listar();
+		List<Cliente> clientes = new DogaoOnDemandFacade().listarClientes();
 		return clientes;
 	}
 	
@@ -32,7 +33,7 @@ public class ClienteRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void salvar(Cliente cliente) {
 		try {
-			new ClienteService().salvar(cliente);
+			new DogaoOnDemandFacade().salvarCliente(cliente);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -42,7 +43,7 @@ public class ClienteRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void editar(Cliente cliente) {
 		try {
-			new ClienteService().salvar(cliente);
+			new DogaoOnDemandFacade().salvarCliente(cliente);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -52,6 +53,6 @@ public class ClienteRest {
 	@Path("/excluir")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void excluir(Cliente cliente) {
-		new ClienteService().excluir(cliente);
+		new DogaoOnDemandFacade().excluirCliente(cliente);
 	}
 }

@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.edu.up.sistemaacademico.entity.Produto;
+import br.edu.up.sistemaacademico.facade.DogaoOnDemandFacade;
 import br.edu.up.sistemaacademico.service.ProdutoService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 import io.swagger.annotations.Api;
@@ -24,7 +25,7 @@ public class ProdutoRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Produto> listar() {
-		List<Produto> produtos = new ProdutoService().listar();
+		List<Produto> produtos = new DogaoOnDemandFacade().listarProdutos();
 		return produtos;
 	}
 	
@@ -32,7 +33,7 @@ public class ProdutoRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void salvar(Produto Produto) {
 		try {
-			new ProdutoService().salvar(Produto);
+			new DogaoOnDemandFacade().salvarProduto(Produto);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -42,7 +43,7 @@ public class ProdutoRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void editar(Produto Produto) {
 		try {
-			new ProdutoService().salvar(Produto);
+			new DogaoOnDemandFacade().salvarProduto(Produto);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -51,6 +52,6 @@ public class ProdutoRest {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void excluir(Produto Produto) {
-		new ProdutoService().excluir(Produto);
+		new DogaoOnDemandFacade().excluirProduto(Produto);
 	}
 }

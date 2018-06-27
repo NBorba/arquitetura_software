@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.edu.up.sistemaacademico.entity.Vendedor;
+import br.edu.up.sistemaacademico.facade.DogaoOnDemandFacade;
 import br.edu.up.sistemaacademico.service.VendedorService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 import io.swagger.annotations.Api;
@@ -24,7 +25,7 @@ public class VendedorRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Vendedor> listar() {
-		List<Vendedor> vendedor = new VendedorService().listar();
+		List<Vendedor> vendedor = new DogaoOnDemandFacade().listarVendedores();
 		return vendedor;
 	}
 	
@@ -32,7 +33,7 @@ public class VendedorRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void salvar(Vendedor Vendedor) {
 		try {
-			new VendedorService().salvar(Vendedor);
+			new DogaoOnDemandFacade().salvarVendedor(Vendedor);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -42,7 +43,7 @@ public class VendedorRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void editar(Vendedor Vendedor) {
 		try {
-			new VendedorService().salvar(Vendedor);
+			new DogaoOnDemandFacade().salvarVendedor(Vendedor);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -51,6 +52,6 @@ public class VendedorRest {
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void excluir(Vendedor Vendedor) {
-		new VendedorService().excluir(Vendedor);
+		new DogaoOnDemandFacade().excluirVendedor(Vendedor);
 	}
 }
