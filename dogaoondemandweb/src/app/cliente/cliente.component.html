@@ -11,8 +11,8 @@
 				class="form-control" name="cpf" [(ngModel)]="cliente.cpf"
 				required>
 		</div>
-		<button class="btn btn-success" *ngIf="cliente.id == null" (click)="addCliente(cliente)">Cadastrar</button>
-		<button class="btn btn-success" *ngIf="cliente.id != null" (click)="updateCliente(cliente)">Alterar</button>
+		<button class="btn btn-success" *ngIf="cliente.id == null" (click)="addCliente()">Cadastrar</button>
+		<button class="btn btn-success" *ngIf="cliente.id != null" (click)="updateCliente()">Alterar</button>
 	</form>
 
 	<p></p>
@@ -30,7 +30,6 @@
 			<td><button (click)="removeCliente(cliente)">Excluir</button></td>
 		</tr>
 	</table>
-	
 </div>
 
 

@@ -44,8 +44,8 @@ export class HttpClienteComponent {
 	    );
 	  }
 
-  removeCliente() {
-      this.httpClientes.removeCliente(this.cliente).subscribe(
+  removeCliente(cliente: Cliente) {
+      this.httpClientes.removeCliente(cliente).subscribe(
         data => data,
         error => alert(error),
         () => this.getClientes()
