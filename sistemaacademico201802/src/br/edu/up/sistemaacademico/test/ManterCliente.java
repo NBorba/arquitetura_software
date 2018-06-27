@@ -10,6 +10,7 @@ import org.junit.runners.MethodSorters;
 
 import br.edu.up.sistemaacademico.entity.Cliente;
 import br.edu.up.sistemaacademico.entity.Produto;
+import br.edu.up.sistemaacademico.facade.DogaoOnDemandFacade;
 import br.edu.up.sistemaacademico.service.ClienteService;
 import br.edu.up.sistemaacademico.service.ProdutoService;
 import br.edu.up.sistemaacademico.service.ServiceException;
@@ -18,6 +19,7 @@ import br.edu.up.sistemaacademico.service.ServiceException;
 public class ManterCliente {
 	
 	static Long id;
+	DogaoOnDemandFacade dogaoOnDemandFacade = new DogaoOnDemandFacade();
 	
 	@Test
 	public void deveriaCadastrarUmCliente() {
@@ -29,7 +31,7 @@ public class ManterCliente {
 		c.setTelefone("Telefone");
 		
 		try {
-			new ClienteService().salvar(c);
+			dogaoOnDemandFacade.salvarCliente(c);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -44,7 +46,7 @@ public class ManterCliente {
 		c.setNome("Renan dois");
 		
 		try {
-			new ClienteService().salvar(c);
+			dogaoOnDemandFacade.salvarCliente(c);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -55,7 +57,7 @@ public class ManterCliente {
 	
 	@Test
 	public void deveriaListarOsClientes() {
-		List<Cliente> clientes = new ClienteService().listar();
+		List<Cliente> clientes = dogaoOnDemandFacade.listarClientes();
 		assertEquals(true, clientes != null && clientes.size() > 0);
 	}
 	
@@ -64,7 +66,7 @@ public class ManterCliente {
 		Cliente c = new ClienteService().buscar(id);
 		new ClienteService().excluir(c);
 		
-		Cliente cExcluido = new ClienteService().buscar(id);
+		Cliente cExcluido = dogaoOnDemandFacade.buscarCliente(id);
 		assertEquals(true, cExcluido == null);
 	}
 }

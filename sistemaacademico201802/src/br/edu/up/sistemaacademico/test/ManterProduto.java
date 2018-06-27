@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.edu.up.sistemaacademico.entity.Produto;
+import br.edu.up.sistemaacademico.facade.DogaoOnDemandFacade;
 import br.edu.up.sistemaacademico.service.ProdutoService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 
@@ -16,6 +17,7 @@ import br.edu.up.sistemaacademico.service.ServiceException;
 public class ManterProduto {
 	
 	static Long id;
+	DogaoOnDemandFacade dogaoOnDemandFacade = new DogaoOnDemandFacade();
 	
 	@Test
 	public void deveriaCadastrarUmProduto() {
@@ -24,7 +26,7 @@ public class ManterProduto {
 		p.setNome("Pendrive");
 		
 		try {
-			new ProdutoService().salvar(p);
+			dogaoOnDemandFacade.salvarProduto(p);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -39,7 +41,7 @@ public class ManterProduto {
 		p.setNome("SSD");
 		
 		try {
-			new ProdutoService().salvar(p);
+			dogaoOnDemandFacade.salvarProduto(p);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -50,7 +52,7 @@ public class ManterProduto {
 	
 	@Test
 	public void deveriaListarOsProdutos() {
-		List<Produto> produtos = new ProdutoService().listar();
+		List<Produto> produtos = dogaoOnDemandFacade.listarProdutos();
 		assertEquals(true, produtos != null && produtos.size() > 0);
 	}
 	
@@ -59,7 +61,7 @@ public class ManterProduto {
 		Produto p = new ProdutoService().buscar(id);
 		new ProdutoService().excluir(p);
 		
-		Produto pExcluido = new ProdutoService().buscar(id);
+		Produto pExcluido = dogaoOnDemandFacade.buscar(id);
 		assertEquals(true, pExcluido == null);
 	}
 }

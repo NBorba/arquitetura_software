@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.edu.up.sistemaacademico.entity.Vendedor;
+import br.edu.up.sistemaacademico.facade.DogaoOnDemandFacade;
 import br.edu.up.sistemaacademico.service.VendedorService;
 import br.edu.up.sistemaacademico.service.ServiceException;
 
@@ -16,6 +17,7 @@ import br.edu.up.sistemaacademico.service.ServiceException;
 public class ManterVendedor {
 	
 	static Long id;
+	DogaoOnDemandFacade dogaoOnDemandFacade = new DogaoOnDemandFacade();
 	
 	@Test
 	public void deveriaCadastrarUmVendedor() {
@@ -24,7 +26,7 @@ public class ManterVendedor {
 		v.setNome("Renan Vendedor");
 		
 		try {
-			new VendedorService().salvar(v);
+			dogaoOnDemandFacade.salvarVendedor(v);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
@@ -39,18 +41,18 @@ public class ManterVendedor {
 		v.setNome("Renan Vendedor Dois");
 		
 		try {
-			new VendedorService().salvar(v);
+			dogaoOnDemandFacade.salvarVendedor(v);
 		} catch (ServiceException e) {			
 			e.printStackTrace();
 		}
 		
-		v = new VendedorService().buscar(id);
+		v = dogaoOnDemandFacade.buscarVendedor(id);
 		assertEquals(true, v.getNome().equals("Renan Vendedor Dois"));		
 	}
 	
 	@Test
-	public void deveriaListarOsVendedors() {
-		List<Vendedor> produtos = new VendedorService().listar();
+	public void deveriaListarOsVendedores() {
+		List<Vendedor> produtos = dogaoOnDemandFacade.listarVendedores();
 		assertEquals(true, produtos != null && produtos.size() > 0);
 	}
 	
@@ -59,7 +61,7 @@ public class ManterVendedor {
 		Vendedor v = new VendedorService().buscar(id);
 		new VendedorService().excluir(v);
 		
-		Vendedor pExcluido = new VendedorService().buscar(id);
+		Vendedor pExcluido = dogaoOnDemandFacade.buscarVendedor(id);
 		assertEquals(true, pExcluido == null);
 	}
 }

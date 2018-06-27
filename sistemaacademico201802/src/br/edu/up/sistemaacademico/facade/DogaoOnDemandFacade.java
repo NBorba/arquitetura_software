@@ -19,7 +19,7 @@ public class DogaoOnDemandFacade {
 		 return new ClienteService().listar();
 	}
 	
-	public Cliente buscarCliente(int id) {
+	public Cliente buscarCliente(Long id) {
 		 return new ClienteService().buscar(id);
 	}
 	
@@ -35,7 +35,7 @@ public class DogaoOnDemandFacade {
 		 return new VendedorService().listar();
 	}
 	
-	public Vendedor buscarVendedor(int id) {
+	public Vendedor buscarVendedor(Long id) {
 		 return new VendedorService().buscar(id);
 	}
 	
@@ -62,5 +62,10 @@ public class DogaoOnDemandFacade {
 	
 	public void excluirProduto(Produto p) {
 		new ProdutoService().excluir(p);
+	}
+
+	public Produto buscar(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
