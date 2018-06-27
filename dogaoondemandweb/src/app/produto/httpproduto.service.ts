@@ -12,7 +12,7 @@ export class HttpProdutoService {
 
   getProdutos(): Observable<Produto[]> {
     return this._http.
-      get('http://localhost:8080/dogaoondemand/rest/produto').
+      get('https://node12910-env-4599970.br1.saphir.global/rest/produto').
       map(this.extractData);
   }
 
@@ -25,7 +25,7 @@ export class HttpProdutoService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this._http.
-      post('http://localhost:8080/dogaoondemand/rest/produto',
+      post('https://node12910-env-4599970.br1.saphir.global/rest/produto',
       json, options).map(res => res.json());
   }
   
@@ -34,7 +34,7 @@ export class HttpProdutoService {
 	    const headers = new Headers({ 'Content-Type': 'application/json' });
 	    const options = new RequestOptions({ headers: headers });
 	    return this._http.
-	      post('http://localhost:8080/dogaoondemand/rest/produto',
+	      post('https://node12910-env-4599970.br1.saphir.global/rest/produto',
 	      json, options).map(res => res.json());
 	  }
     
@@ -43,7 +43,7 @@ export class HttpProdutoService {
       const headers = new Headers({ 'Content-Type': 'application/json' });
       const options = new RequestOptions({ headers: headers });
       return this._http.
-        post('http://localhost:8080/dogaoondemand/rest/produto/excluir',
+        post('https://node12910-env-4599970.br1.saphir.global/rest/produto/excluir',
         json, options).map(res => res.json());
     }
 }

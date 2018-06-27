@@ -12,7 +12,7 @@ export class HttpVendedorService {
 
   getVendedores(): Observable<Vendedor[]> {
     return this._http.
-      get('http://localhost:8080/dogaoondemand/rest/vendedor').
+      get('https://node12910-env-4599970.br1.saphir.global/rest/vendedor').
       map(this.extractData);
   }
 
@@ -25,7 +25,7 @@ export class HttpVendedorService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this._http.
-      post('http://localhost:8080/dogaoondemand/rest/vendedor',
+      post('https://node12910-env-4599970.br1.saphir.global/rest/vendedor',
       json, options).map(res => res.json());
   }
   
@@ -34,7 +34,7 @@ export class HttpVendedorService {
 	    const headers = new Headers({ 'Content-Type': 'application/json' });
 	    const options = new RequestOptions({ headers: headers });
 	    return this._http.
-	      post('http://localhost:8080/dogaoondemand/rest/vendedor',
+	      post('https://node12910-env-4599970.br1.saphir.global/rest/vendedor',
 	      json, options).map(res => res.json());
 	  }
     
@@ -43,7 +43,7 @@ export class HttpVendedorService {
       const headers = new Headers({ 'Content-Type': 'application/json' });
       const options = new RequestOptions({ headers: headers });
       return this._http.
-        post('http://localhost:8080/dogaoondemand/rest/vendedor/excluir',
+        post('https://node12910-env-4599970.br1.saphir.global/rest/vendedor/excluir',
         json, options).map(res => res.json());
     }
 }

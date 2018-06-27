@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClienteService {
 
-  url = 'http://localhost:8080/dogaoondemand/rest';
+  url = 'https://node12910-env-4599970.br1.saphir.global/rest';
   constructor(private http: HttpClient) { }
 
   getClientes() {

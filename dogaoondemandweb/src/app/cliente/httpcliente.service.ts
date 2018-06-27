@@ -12,7 +12,7 @@ export class HttpClienteService {
 
   getClientes(): Observable<Cliente[]> {
     return this._http.
-      get('http://localhost:8080/dogaoondemand/rest/cliente').
+      get('https://node12910-env-4599970.br1.saphir.global/rest/cliente').
       map(this.extractData);
   }
 
@@ -25,7 +25,7 @@ export class HttpClienteService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this._http.
-      post('http://localhost:8080/dogaoondemand/rest/cliente',
+      post('https://node12910-env-4599970.br1.saphir.global/rest/cliente',
       json, options).map(res => res.json());
   }
   
@@ -34,7 +34,7 @@ export class HttpClienteService {
 	    const headers = new Headers({ 'Content-Type': 'application/json' });
 	    const options = new RequestOptions({ headers: headers });
 	    return this._http.
-	      post('http://localhost:8080/dogaoondemand/rest/cliente',
+	      post('https://node12910-env-4599970.br1.saphir.global/rest/cliente',
 	      json, options).map(res => res.json());
 	  }
     
@@ -43,7 +43,7 @@ export class HttpClienteService {
       const headers = new Headers({ 'Content-Type': 'application/json' });
       const options = new RequestOptions({ headers: headers });
       return this._http.
-        post('http://localhost:8080/dogaoondemand/rest/cliente/excluir',
+        post('https://node12910-env-4599970.br1.saphir.global/rest/cliente/excluir',
         json, options).map(res => res.json());
     }
 }
