@@ -24,6 +24,10 @@ public class ManterVendedor {
 		Vendedor v = new Vendedor();
 		v.setId(null);
 		v.setNome("Renan Vendedor");
+		v.setCpf("09404823988");
+		v.setMatricula("12345");
+		v.setUsuario("Renan");
+		v.setSenha("root");
 		
 		try {
 			dogaoOnDemandFacade.salvarVendedor(v);
@@ -37,8 +41,12 @@ public class ManterVendedor {
 	
 	@Test
 	public void deveriaAlterarUmVendedor() {
-		Vendedor v = new VendedorService().buscar(id);
+		Vendedor v = dogaoOnDemandFacade.buscarVendedor(id);
 		v.setNome("Renan Vendedor Dois");
+		v.setCpf("09404823988");
+		v.setMatricula("12345");
+		v.setUsuario("Renan");
+		v.setSenha("root");
 		
 		try {
 			dogaoOnDemandFacade.salvarVendedor(v);

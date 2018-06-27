@@ -24,6 +24,8 @@ public class ManterProduto {
 		Produto p = new Produto();
 		p.setId(null);
 		p.setNome("Pendrive");
+		p.setEstoque(0);
+		p.setValor(0.0);
 		
 		try {
 			dogaoOnDemandFacade.salvarProduto(p);
@@ -39,6 +41,8 @@ public class ManterProduto {
 	public void deveriaAlterarUmProduto() {
 		Produto p = dogaoOnDemandFacade.buscarProduto(id);
 		p.setNome("SSD");
+		p.setEstoque(1);
+		p.setValor(1.0);
 		
 		try {
 			dogaoOnDemandFacade.salvarProduto(p);

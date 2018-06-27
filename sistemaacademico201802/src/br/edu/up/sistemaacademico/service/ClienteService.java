@@ -31,6 +31,10 @@ public class ClienteService {
 			throw new ServiceException("A data de nascimento do cliente deve ser valida! Formato esperado (dd/MM/yyyy)");
 		}
 		
+		if (cliente.getEndereco() == null || cliente.getEndereco().equals("")) {
+			throw new ServiceException("O endereco não pode ser vazio!");
+		}
+		
 		if (cliente.getTelefone() == null || cliente.getTelefone().equals("")
 				|| !ValidationUtils.isTelefone(cliente.getTelefone())) {
 			throw new ServiceException("O telefone do cliente deve ser valido! Formato esperado (XX)99999-9999");

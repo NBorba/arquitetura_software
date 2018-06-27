@@ -26,9 +26,10 @@ public class ManterCliente {
 		Cliente c = new Cliente();
 		c.setId(null);
 		c.setNome("Renan");
-		c.setCpf("111111111111");
+		c.setCpf("09404823988");
+		c.setDataNascimento("09/08/1998");
 		c.setEndereco("sadasd");
-		c.setTelefone("Telefone");
+		c.setTelefone("(41)99999-9999");
 		
 		try {
 			dogaoOnDemandFacade.salvarCliente(c);
@@ -42,8 +43,12 @@ public class ManterCliente {
 	
 	@Test
 	public void deveriaAlterarUmCliente() {
-		Cliente c = new ClienteService().buscar(id);
+		Cliente c = dogaoOnDemandFacade.buscarCliente(id);
 		c.setNome("Renan dois");
+		c.setCpf("09404823988");
+		c.setDataNascimento("09/08/1998");
+		c.setEndereco("R. Teste");
+		c.setTelefone("(41)98999-9999");
 		
 		try {
 			dogaoOnDemandFacade.salvarCliente(c);
