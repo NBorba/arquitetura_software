@@ -20,6 +20,10 @@ public class ProdutoService {
 			throw new ServiceException("O nome do produto não pode ser vazio!");
 		}
 		
+		if (Produto.getValor() < 0) {
+			throw new ServiceException("O valor do produto não pode ser negativo!");
+		}
+		
 		if (Produto.getId() == null) {
 			produtoDao.salvar(Produto);
 		} else {

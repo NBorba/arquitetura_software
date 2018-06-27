@@ -49,7 +49,8 @@ public class VendedorRest {
 		}
 	}
 	
-	@DELETE
+	@POST
+	@Path("/excluir")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void excluir(Vendedor Vendedor) {
 		new DogaoOnDemandFacade().excluirVendedor(Vendedor);
