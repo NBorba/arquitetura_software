@@ -58,7 +58,7 @@ public class ManterVendedor {
 	
 	@Test
 	public void deveriaExcluirOVendedor() {
-		Vendedor v = new VendedorService().buscar(id);
+		Vendedor v = dogaoOnDemandFacade.buscarVendedor(id);
 		new VendedorService().excluir(v);
 		
 		Vendedor pExcluido = dogaoOnDemandFacade.buscarVendedor(id);

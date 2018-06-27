@@ -51,7 +51,7 @@ public class DogaoOnDemandFacade {
 		 return new ProdutoService().listar();
 	}
 	
-	public Produto buscarProduto(int id) {
+	public Produto buscarProduto(Long id) {
 		 return new ProdutoService().buscar(id);
 	}
 	

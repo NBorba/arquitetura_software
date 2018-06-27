@@ -20,6 +20,10 @@ public class ClienteService {
 			throw new ServiceException("O nome do cliente não pode ser vazio!");
 		}
 		
+		if (cliente.getCpf() == null || cliente.getCpf().equals("")) {
+			throw new ServiceException("O CPF do cliente não pode ser vazio!");
+		}
+		
 		if (cliente.getId() == null) {
 			clienteDao.salvar(cliente);
 		} else {

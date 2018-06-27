@@ -37,7 +37,7 @@ public class ManterProduto {
 	
 	@Test
 	public void deveriaAlterarUmProduto() {
-		Produto p = new ProdutoService().buscar(id);
+		Produto p = dogaoOnDemandFacade.buscarProduto(id);
 		p.setNome("SSD");
 		
 		try {
@@ -46,7 +46,7 @@ public class ManterProduto {
 			e.printStackTrace();
 		}
 		
-		p = new ProdutoService().buscar(id);
+		p = dogaoOnDemandFacade.buscarProduto(id);
 		assertEquals(true, p.getNome().equals("SSD"));		
 	}
 	
@@ -58,8 +58,8 @@ public class ManterProduto {
 	
 	@Test
 	public void deveriaExcluirOProduto() {
-		Produto p = new ProdutoService().buscar(id);
-		new ProdutoService().excluir(p);
+		Produto p = dogaoOnDemandFacade.buscarProduto(id);
+		dogaoOnDemandFacade.excluirProduto(p);
 		
 		Produto pExcluido = dogaoOnDemandFacade.buscar(id);
 		assertEquals(true, pExcluido == null);

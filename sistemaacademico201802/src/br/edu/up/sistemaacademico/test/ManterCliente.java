@@ -51,7 +51,7 @@ public class ManterCliente {
 			e.printStackTrace();
 		}
 		
-		c = new ClienteService().buscar(id);
+		c = dogaoOnDemandFacade.buscarCliente(id);
 		assertEquals(true, c.getNome().equals("Renan dois"));		
 	}
 	
@@ -63,8 +63,8 @@ public class ManterCliente {
 	
 	@Test
 	public void deveriaExcluirOCliente() {
-		Cliente c = new ClienteService().buscar(id);
-		new ClienteService().excluir(c);
+		Cliente c = dogaoOnDemandFacade.buscarCliente(id);
+		dogaoOnDemandFacade.excluirCliente(c);
 		
 		Cliente cExcluido = dogaoOnDemandFacade.buscarCliente(id);
 		assertEquals(true, cExcluido == null);
