@@ -61,7 +61,7 @@
     </init-param>
     <init-param>
       <param-name>swagger.api.basepath</param-name>
-      <param-value>https://node12910-env-4599970.br1.saphir.global/rest/</param-value>
+      <param-value>https://node3110-env-1654973.cloud.unispace.io/rest/</param-value>
     </init-param>
     <load-on-startup>2</load-on-startup>
   </servlet>

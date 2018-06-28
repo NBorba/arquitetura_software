@@ -25,7 +25,7 @@ export class HttpClienteService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this._http.
-      post('hhttps://node3110-env-1654973.cloud.unispace.io/rest/cliente',
+      post('https://node3110-env-1654973.cloud.unispace.io/rest/cliente',
       json, options).map(res => res.json());
   }
   
