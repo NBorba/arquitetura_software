@@ -44,7 +44,7 @@
       <param-value>
                 io.swagger.jaxrs.json,
                 io.swagger.jaxrs.listing,
-                br.edu.up.sistemaacademico.rest
+                br.com.rblstudios.rest
             </param-value>
     </init-param>
   </servlet>

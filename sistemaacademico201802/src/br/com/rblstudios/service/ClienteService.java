@@ -1,0 +1,61 @@
+package br.com.rblstudios.service;
+
+import java.util.List;
+
+import br.com.rblstudios.dao.Dao;
+import br.com.rblstudios.dao.FactoryDao;
+import br.com.rblstudios.entity.Cliente;
+import br.com.rblstudios.utils.ValidationUtils;
+
+public class ClienteService {
+	
+	Dao<Cliente> clienteDao = FactoryDao.createClienteDao();
+	
+	public void salvar(Cliente cliente) throws ServiceException {
+		
+		if (cliente == null) {
+			throw new ServiceException("O cliente não pode ser vazio!");
+		}
+		
+		if (cliente.getNome() == null || cliente.getNome().equals("")) {
+			throw new ServiceException("O nome do cliente não pode ser vazio!");
+		}
+		
+		if (cliente.getCpf() == null || cliente.getCpf().equals("")
+				|| !ValidationUtils.isCPF(cliente.getCpf())) {
+			throw new ServiceException("O CPF do cliente não pode ser vazio ou invalido!");
+		}
+		
+		if (cliente.getDataNascimento() == null || cliente.getDataNascimento().equals("")
+				|| !ValidationUtils.isDate(cliente.getDataNascimento(), "dd/MM/yyyy")) {
+			throw new ServiceException("A data de nascimento do cliente deve ser valida! Formato esperado (dd/MM/yyyy)");
+		}
+		
+		if (cliente.getEndereco() == null || cliente.getEndereco().equals("")) {
+			throw new ServiceException("O endereco não pode ser vazio!");
+		}
+		
+		if (cliente.getTelefone() == null || cliente.getTelefone().equals("")
+				|| !ValidationUtils.isTelefone(cliente.getTelefone())) {
+			throw new ServiceException("O telefone do cliente deve ser valido! Formato esperado (XX)99999-9999");
+		}
+		
+		if (cliente.getId() == null) {
+			clienteDao.salvar(cliente);
+		} else {
+			clienteDao.editar(cliente);
+		}
+	}
+
+	public Cliente buscar(long id) {
+		return clienteDao.buscar(id);
+	}
+
+	public List<Cliente> listar() {
+		return clienteDao.listar();
+	}
+	
+	public void excluir(Cliente cliente) {
+		clienteDao.excluir(cliente);
+	}
+}
