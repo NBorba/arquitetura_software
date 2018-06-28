@@ -10,9 +10,9 @@
 
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://node12909-env-4599970.br1.saphir.global/dogaoondemand" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://node3111-env-1654973.cloud.unispace.io/dogaoondemand" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="NTYnhm16077" />
+			<property name="javax.persistence.jdbc.password" value="OBBtal18924" />
 
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
